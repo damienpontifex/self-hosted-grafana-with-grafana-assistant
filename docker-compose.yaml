@@ -1,0 +1,14 @@
+services:
+  lgtm:
+    image: grafana/otel-lgtm:0.27.1
+    ports:
+      - 3000:3000 # Grafana UI
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-assistant-app
+      - GRAFANA_ASSISTANT_BACKEND_URL
+      - GRAFANA_ASSISTANT_INSTANCE_ID
+      - GRAFANA_ASSISTANT_ACCESS_TOKEN
+    volumes:
+      - ./assistant.yaml:/etc/grafana/provisioning/plugins/assistant.yaml
+
+

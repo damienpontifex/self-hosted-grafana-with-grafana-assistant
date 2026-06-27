@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    // https://github.com/renovatebot/renovate/blob/main/lib/config/presets/internal/config.preset.ts
+    "config:recommended",
+    // https://github.com/renovatebot/renovate/blob/main/lib/config/presets/internal/default.preset.ts
+    ":disableDependencyDashboard"
+  ],
+  "configMigration": true,
+  "semanticCommits": "enabled",
+  "automerge": true,
+}
