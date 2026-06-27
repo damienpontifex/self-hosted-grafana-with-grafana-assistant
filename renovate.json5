@@ -9,4 +9,5 @@
   "configMigration": true,
   "semanticCommits": "enabled",
   "automerge": true,
+  "mode": "full",
 }
