@@ -2,13 +2,18 @@ services:
   lgtm:
     image: grafana/otel-lgtm:0.27.1
     ports:
-      - 3000:3000 # Grafana UI
+      - 3000:3000 # Grafana UI User: admin, password: admin
     environment:
+      - ENABLE_LOGS_GRAFANA=true # surface grafana logs on stdout (`docker compose logs lgtm`)
+      # Assistant plugin authenticates users to the cloud backend via managed
+      # service accounts; both of these are required (off by default).
+      - GF_FEATURE_TOGGLES_ENABLE=externalServiceAccounts
+      - GF_AUTH_MANAGED_SERVICE_ACCOUNTS_ENABLED=true
       - GF_INSTALL_PLUGINS=grafana-assistant-app
-      - GRAFANA_ASSISTANT_BACKEND_URL
-      - GRAFANA_ASSISTANT_INSTANCE_ID
-      - GRAFANA_ASSISTANT_ACCESS_TOKEN
     volumes:
-      - ./assistant.yaml:/etc/grafana/provisioning/plugins/assistant.yaml
+      - grafana-data:/data/grafana
+
+volumes:
+  grafana-data:
 
 
