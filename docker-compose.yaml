@@ -1,6 +1,6 @@
 services:
   lgtm:
-    image: grafana/otel-lgtm:0.33.1
+    image: grafana/otel-lgtm:0.34.0
     ports:
       - 3000:3000 # Grafana UI User: admin, password: admin
     environment:
